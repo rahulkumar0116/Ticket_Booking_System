@@ -16,7 +16,7 @@ const busSchema = new Schema({
   },
   agency: {
     type: Schema.Types.ObjectId,
-    ref: "agency",
+    ref: "Agency",
   },
 });
 export const Bus = mongoose.model("Bus", busSchema);
