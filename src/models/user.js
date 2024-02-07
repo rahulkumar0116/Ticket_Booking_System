@@ -9,9 +9,14 @@ const userSchema = new Schema(
       type: String,
       unique: true,
     },
-    password: {
+    username: {
       required: true,
       type: String,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true
     },
     fullName: {
       required: true,
@@ -26,9 +31,10 @@ const userSchema = new Schema(
       type: String,
       unique: true,
     },
-    roles: {
-      type: Schema.Types.ObjectId,
-      ref: "role",
+    role: {
+      type: String,
+      enum:["user", "admin"],
+      default:"user"
     },
     refreshToken: {
       type: String,
@@ -39,7 +45,7 @@ const userSchema = new Schema(
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 

@@ -2,10 +2,8 @@ import mongoose, { Schema } from "mongoose";
 
 const roleSchema = new Schema(
     {
-        role:{
-            type:String,
-            required: true
-        }
+        name: String,
+        permissions: [String]
     }
 )
 export const Role = mongoose.model("Role", roleSchema)
