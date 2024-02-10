@@ -11,16 +11,16 @@ const ticketSchema = new Schema({
     default:true
   },
   journeyDate: {
-    type: String,
+    type: Date,
     required: true,
   },
   passenger: {
     type: Schema.Types.ObjectId,
-    ref: "user",
+    ref: "User",
   },
   tripSchedule: {
     type: Schema.Types.ObjectId,
-    ref: "tripschedule",
+    ref: "TripSchedule",
   },
 },{timestamps: true});
 

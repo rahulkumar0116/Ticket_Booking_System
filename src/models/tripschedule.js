@@ -3,7 +3,7 @@ import { Ticket } from "./ticket.js";
 
 const tripScheduleSchema = new Schema({
   tripDate: {
-    type: String,
+    type: Date,
     required: true,
   },
   availableSeat: {
@@ -12,11 +12,7 @@ const tripScheduleSchema = new Schema({
   },
   tripDetails: {
     type: Schema.Types.ObjectId,
-    ref: "trip",
-  },
-  ticketSold: {
-    type: [Ticket],
-    default: undefined,
+    ref: "Trip",
   },
 });
 export const TripSchedule = mongoose.model("TripSchedule", tripScheduleSchema);

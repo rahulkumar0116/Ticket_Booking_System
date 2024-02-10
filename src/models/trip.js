@@ -11,19 +11,19 @@ const tripSchema = new Schema({
   },
   sourceStop: {
     type: Schema.Types.ObjectId,
-    ref: "stop",
+    ref: "Stop",
   },
   desStop: {
     type: Schema.Types.ObjectId,
-    ref: "stop",
+    ref: "Stop",
   },
   bus: {
     type: Schema.Types.ObjectId,
-    ref: "bus",
+    ref: "Bus",
   },
   agency: {
     type: Schema.Types.ObjectId,
-    ref: "agency",
+    ref: "Agency",
   },
 });
 export const Trip = mongoose.model("Trip", tripSchema);

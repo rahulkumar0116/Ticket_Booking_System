@@ -17,9 +17,24 @@ app.use(cookieParser())
 
 import userRouter from "./routes/user.routes.js"
 import agencyRouter from "./routes/agency.routes.js"
+import busRouter from "./routes/bus.routes.js"
+import stopRouter from "./routes/stop.routes.js"
+import tripRouter from "./routes/trip.routes.js"
+import tripScheduleRouter from "./routes/tripschedule.routes.js"
+import ticketRouter from "./routes/ticket.routes.js"
 
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/agency", agencyRouter)
+app.use("/api/v1/bus", busRouter)
+app.use("/api/v1/stop", stopRouter)
+app.use("/api/v1/trip", tripRouter)
+app.use("/api/v1/tripschedule", tripScheduleRouter)
+app.use("/api/v1/ticket", ticketRouter)
+
+
+
+
+
 
 app.get("/",(req, res)=>{
   res.send({message:"this is home page"})
