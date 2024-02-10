@@ -1,10 +1,12 @@
 import { Router } from "express";
 import { verifyJWT } from "../middlewares/auth.js";
-import { createTicket } from "../controllers/ticket.controller.js";
+import { bookTicket, createTicket } from "../controllers/ticket.controller.js";
 
 
 const router = Router();
-router.route("/book_ticket").post(verifyJWT,createTicket)
+router.route("/create_ticket").post(verifyJWT,createTicket)
+router.route("/book_ticket").post(verifyJWT,bookTicket)
+
 
 
 
